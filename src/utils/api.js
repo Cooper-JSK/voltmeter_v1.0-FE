@@ -53,6 +53,7 @@ export const getSessions = async () => {
     }
 };
 
+// src/utils/api.js
 export const getData = async (sessionId) => {
     try {
         const response = await axios.get(`${API_BASE_URL}/data/${sessionId}`);
@@ -60,5 +61,24 @@ export const getData = async (sessionId) => {
     } catch (error) {
         console.error('Error fetching data', error);
         return [];
+    }
+};
+
+export const downloadSessionData = async (sessionId) => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/session/${sessionId}/download`, {
+            responseType: 'blob', // Important to handle binary data
+        });
+
+        // Create a URL for the file
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', `session_${sessionId}.xlsx`); // Set the file name
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } catch (error) {
+        console.error('Error downloading session data', error);
     }
 };
