@@ -1,5 +1,5 @@
 // src/pages/Session.jsx
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getSession, startSession, stopSession, downloadSessionData } from '../utils/api';
 import RealTimeGraph from '../components/RealTimeGraph.jsx';

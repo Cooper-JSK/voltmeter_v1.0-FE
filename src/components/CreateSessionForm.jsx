@@ -51,7 +51,7 @@ const CreateSessionForm = () => {
           </div>
           <button
             type="submit"
-            className="w-full font-poppins bg-blue-600 text-white py-3 px-4 rounded-full font-semibold text-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            className="w-full font-poppins bg-blue-600 text-white py-3 px-4 rounded-full font-semibold text-lg hover:bg-white hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
           >
             Create Session
           </button>

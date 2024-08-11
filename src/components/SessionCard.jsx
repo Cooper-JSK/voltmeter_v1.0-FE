@@ -2,30 +2,31 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const SessionCard = ({ session }) => (
-  <div className="bg-white p-6 rounded-lg shadow-lg">
-    <h2 className="text-xl font-semibold text-gray-800 mb-3">{session.name}</h2>
-    <p className="text-gray-600 mb-2">
+  <div className="bg-blue-100  rounded-xl font-poppins shadow-lg p-8 mt-6">
+    <h2 className="text-xl font-semibold text-slate-800 mb-8">{session.name}</h2>
+    <p className="text-slate-600 mb-2">
       Interval: <span className="font-medium">{session.interval} ms</span>
     </p>
     <p
-      className={`mb-2 ${session.isActive ? "text-green-600" : "text-red-600"}`}
+      className="mb-2 text-slate-600 "
     >
       Status: {session.isActive ? "Active" : "Inactive"}
     </p>
-    <p className="text-gray-600 mb-2">
+    <p className="text-slate-600 mb-2">
       Start Time:{" "}
       {session.startTime ? new Date(session.startTime).toLocaleString() : "N/A"}
     </p>
     {session.endTime && (
-      <p className="text-gray-600 mb-4">
+      <p className="text-slate-600 mb-4">
         End Time: {new Date(session.endTime).toLocaleString()}
       </p>
     )}
     <Link
       to={`/session/${session._id}`}
-      className="text-blue-600 hover:underline font-medium"
+      className="text-blue-600 hover:underline font-bold"
     >
-      View Session
+        <button className="bg-blue-300 text-black py-2 px-4 rounded-full hover:bg-white hover:text-blue-600 "> View Session</button>
+     
     </Link>
   </div>
 );
