@@ -21,7 +21,7 @@ const CreateSessionForm = () => {
       <div className="">
         <form
           onSubmit={handleSubmit}
-          className="bg-blue-200 p-8 rounded-lg "
+          className="bg-blue-200 p-8 rounded-2xl font-poppins"
         >
           <div className="mb-6">
             <label className="block text-slate-700 text-lg font-semibold">
