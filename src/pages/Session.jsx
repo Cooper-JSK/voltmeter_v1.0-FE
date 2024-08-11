@@ -1,9 +1,10 @@
 // src/pages/Session.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getSession, startSession, stopSession, downloadSessionData } from '../utils/api';
 import RealTimeGraph from '../components/RealTimeGraph.jsx';
 import SessionControls from '../components/SessionControls';
+import { SiMicrosoftexcel } from "react-icons/si";
 
 const Session = () => {
     const { id } = useParams();
@@ -30,28 +31,25 @@ const Session = () => {
     };
 
     const handleDownload = async () => {
-        await downloadSessionData(id);
+        const fileName = `${session.name.replace(/\s+/g, '_')}_${id}.xlsx`;
+            await downloadSessionData(id, fileName);
     };
 
     if (!session) return <div>Loading...</div>;
 
     return (
         <div className="container mx-auto p-6">
-            <h1 className="text-2xl font-bold mb-4">{session.name}</h1>
-            <SessionControls sessionId={id} startSession={handleStart} stopSession={handleStop} />
-
-            {/* Wrapper for the graph with full width */}
-            <div className="w-full mt-6">
-                <RealTimeGraph sessionId={id} isActive={isActive} sessionInterval={session.interval} />
-            </div>
-
-            {/* Centering the button */}
-            <div className="mt-4 flex justify-center">
+            <h1 className="text-2xl font-bold mb-4 text-center">{session.name}</h1>
+            <div className="flex justify-between items-center mb-4">
+                <SessionControls sessionId={id} startSession={handleStart} stopSession={handleStop} />
                 <button
                     onClick={handleDownload}
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Download Excel
+                    className="bg-blue-500 hover:bg-white hover:text-blue-700 text-white font-bold py-2 px-4 rounded-full flex justify-center items-center gap-2">
+                    Download <SiMicrosoftexcel />
                 </button>
+            </div>
+            <div className="container w-full mt-6">
+                <RealTimeGraph sessionId={id} isActive={isActive} sessionInterval={session.interval} />
             </div>
         </div>
     );
