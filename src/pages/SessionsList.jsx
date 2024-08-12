@@ -14,15 +14,19 @@ const SessionsList = () => {
   }, []);
 
   return (
-    <div className="container m-auto p-6">
-      <h1 className="text-4xl font-poppins text-blue-600 text-center font-bold mb-6">Sessions</h1>
-      <div className="flex flex-wrap gap-6">
+    <div className="container mx-auto p-6">
+      <h1 className="text-4xl font-poppins text-blue-600 text-center font-bold mb-6">
+        Sessions
+      </h1>
+      <div className="flex flex-wrap gap-6 justify-center">
         {sessions.length > 0 ? (
           sessions.map((session) => (
-            <SessionCard key={session._id} session={session} />
+            <div key={session._id} className="w-full sm:w-1/2 lg:w-1/3">
+              <SessionCard session={session} />
+            </div>
           ))
         ) : (
-          <p>No sessions available.</p>
+          <p className="text-center w-full">No sessions available.</p>
         )}
       </div>
     </div>

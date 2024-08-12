@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { FaCirclePlus } from "react-icons/fa6";
 
 const Navbar = () => (
-  <nav className="bg-blue-600 p-4">
+  <nav className="bg-blue-600 p-4 mx-auto">
     <div className="container mx-auto flex justify-between items-center">
-      <Link to="/sessions" className="text-white text-lg font-bold">
+      <Link to="/sessions" className="text-white text-xl font-montserrat font-bold">
         Voltmeter App
       </Link>
 
