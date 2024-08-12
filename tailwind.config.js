@@ -9,17 +9,19 @@ export default {
     extend: {
       container: {
         center: true,
-        padding: '2rem',
+        padding: '4rem',
         screens: {
-          lg: '1124px',
-          xl: '1124px',
-          '2xl': '1124px',
+          'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
         },
       },
       fontFamily:{
-        'sans': ['Montserrat', ],
+        'sans': ['Poppins', ],
         'serif': ['Merriweather', ],
-        "poppins": ["Poppins", ]
+        "poppins": ["Montserrat", ]
       },
       
     },
